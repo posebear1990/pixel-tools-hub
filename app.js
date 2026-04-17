@@ -110,6 +110,10 @@ function buildIcon(item) {
   const icon = document.createElement("span");
   icon.className = "icon";
 
+  if (item.iconFit === "cover") {
+    icon.classList.add("icon-cover");
+  }
+
   if (item.iconSrc) {
     const image = document.createElement("img");
     image.src = item.iconSrc;

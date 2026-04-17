@@ -10,6 +10,17 @@ window.PIXEL_APPS = [
     badge: "question",
   },
   {
+    id: "twotwo-girl",
+    name: "22Girl",
+    note: "Pixel Bilibili Danmaku Platformer",
+    href: "https://chromewebstore.google.com/detail/22%E5%A8%98%E5%BC%B9%E5%B9%95%E5%A4%A7%E5%86%92%E9%99%A9/ffipgjffmghinekaaolhingoncpnenol",
+    intro: "Turn live Bilibili danmaku into moving platforms and guide 22 Girl through a lightweight pixel platformer while you watch.",
+    iconSrc: "./assets/icons/twotwo-girl.png",
+    iconFit: "cover",
+    fallback: "22",
+    badge: "mushroom",
+  },
+  {
     id: "breathe-ball",
     name: "BreatheBall",
     note: "Guided Breathing for Focus and Calm",
