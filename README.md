@@ -5,10 +5,12 @@ A pixel-style phone launcher for Xiaoxiong's web tools.
 ## Connected Apps
 
 - TwitterWithBaiduTranslator
+- 22Girl (`twotwo-girl-danmaku-adventure`)
 - BreatheBall
 - XGPBox (`xgp-box`)
 - Daily (`daily`)
 - Podcast (`podcast-segment-workflow`)
+- Learning by List (`anki-learning-by-list`)
 
 ## Local Preview
 
