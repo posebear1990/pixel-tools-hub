@@ -23,20 +23,32 @@ Open: `http://localhost:5080`
 ## Deploy (xiaoxiong.app)
 
 ```bash
+VPS_HOST=your-vps-host \
+REMOTE_SITE_DIR=/var/www/xiaoxiong-apps/site \
 ./deploy.sh
 ```
 
-Default deploy target:
+Required deploy environment:
 
-- `DOMAIN=xiaoxiong.app`
-- `VPS_HOST=your-vps-host`
-- `REMOTE_SITE_DIR=/var/www/xiaoxiong-apps/site`
+- `VPS_HOST`: deploy target host or IP
+- `REMOTE_SITE_DIR`: remote directory that serves the static site
 
 Optional overrides:
 
 ```bash
-DOMAIN=example.com VPS_HOST=1.2.3.4 ./deploy.sh
+DOMAIN=example.com \
+CERT_NAME=example.com \
+VPS_HOST=your-vps-host \
+VPS_USER=deploy \
+REMOTE_SITE_DIR=/var/www/example-site \
+./deploy.sh
 ```
+
+Notes:
+
+- `DOMAIN` defaults to `xiaoxiong.app`
+- `VPS_USER` defaults to `root`
+- `CERT_NAME` defaults to the same value as `DOMAIN`
 
 ## Interactions
 

@@ -7,6 +7,19 @@ VPS_HOST="${VPS_HOST:-}"
 VPS_USER="${VPS_USER:-root}"
 DOMAIN="${DOMAIN:-xiaoxiong.app}"
 REMOTE_SITE_DIR="${REMOTE_SITE_DIR:-}"
+CERT_NAME="${CERT_NAME:-${DOMAIN}}"
+
+require_env() {
+  local name="$1"
+  local value="$2"
+  if [ -z "${value}" ]; then
+    echo "Missing required environment variable: ${name}" >&2
+    exit 1
+  fi
+}
+
+require_env "VPS_HOST" "${VPS_HOST}"
+require_env "REMOTE_SITE_DIR" "${REMOTE_SITE_DIR}"
 
 STAGE_DIR="$(mktemp -d)"
 trap 'rm -rf "${STAGE_DIR}"' EXIT
@@ -34,8 +47,8 @@ server {
     listen 443 ssl;
     server_name ${DOMAIN};
 
-    ssl_certificate /etc/letsencrypt/live/xiaoxiong.app/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/xiaoxiong.app/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/${CERT_NAME}/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/${CERT_NAME}/privkey.pem;
     include /etc/letsencrypt/options-ssl-nginx.conf;
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
