@@ -8,6 +8,8 @@ VPS_USER="${VPS_USER:-root}"
 DOMAIN="${DOMAIN:-xiaoxiong.app}"
 REMOTE_SITE_DIR="${REMOTE_SITE_DIR:-}"
 CERT_NAME="${CERT_NAME:-${DOMAIN}}"
+CANONICAL_DOMAIN="${DOMAIN#www.}"
+WWW_DOMAIN="www.${CANONICAL_DOMAIN}"
 
 require_env() {
   local name="$1"
@@ -39,13 +41,25 @@ NGINX_CONF="${STAGE_DIR}/${DOMAIN}.conf"
 cat > "${NGINX_CONF}" <<CONF
 server {
     listen 80;
-    server_name ${DOMAIN};
-    return 301 https://\$host\$request_uri;
+    server_name ${CANONICAL_DOMAIN} ${WWW_DOMAIN};
+    return 301 https://${CANONICAL_DOMAIN}\$request_uri;
 }
 
 server {
     listen 443 ssl;
-    server_name ${DOMAIN};
+    server_name ${WWW_DOMAIN};
+
+    ssl_certificate /etc/letsencrypt/live/${CERT_NAME}/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/${CERT_NAME}/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    return 301 https://${CANONICAL_DOMAIN}\$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name ${CANONICAL_DOMAIN};
 
     ssl_certificate /etc/letsencrypt/live/${CERT_NAME}/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/${CERT_NAME}/privkey.pem;
@@ -78,4 +92,4 @@ fi
 nginx -t
 systemctl reload nginx"
 
-echo "Done. Site deployed to: https://${DOMAIN}/"
+echo "Done. Site deployed to: https://${CANONICAL_DOMAIN}/"
