@@ -64,7 +64,7 @@ window.PIXEL_APPS = [
     id: "anki-learning-by-list",
     name: "Learning by List",
     note: "Anki Add-on for Note-Based Review",
-    href: "https://github.com/posebear1990/anki-learning-by-list",
+    href: "https://ankiweb.net/shared/info/884041405",
     intro: "Browse the current Anki deck as a note-based list with configurable columns, inline audio playback, and faster scanning.",
     iconSrc: "./assets/icons/book-list.svg",
     fallback: "AL",
