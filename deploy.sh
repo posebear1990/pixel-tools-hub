@@ -3,6 +3,8 @@
 set -euo pipefail
 
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ENV_FILE="${PROJECT_DIR}/.env"
+ENV_EXAMPLE_FILE="${PROJECT_DIR}/.env.example"
 VPS_HOST="${VPS_HOST:-}"
 VPS_USER="${VPS_USER:-root}"
 DOMAIN="${DOMAIN:-xiaoxiong.app}"
@@ -23,6 +25,22 @@ require_env() {
 require_env "VPS_HOST" "${VPS_HOST}"
 require_env "REMOTE_SITE_DIR" "${REMOTE_SITE_DIR}"
 
+if [[ ! -f "${ENV_FILE}" ]]; then
+  cp "${ENV_EXAMPLE_FILE}" "${ENV_FILE}"
+  echo "Created ${ENV_FILE} from .env.example. Please set token and retry." >&2
+  exit 1
+fi
+
+set -a
+source "${ENV_FILE}"
+set +a
+
+CF_TOKEN="${CLOUDFLARE_WEB_ANALYTICS_TOKEN:-}"
+if [[ -z "${CF_TOKEN}" || "${CF_TOKEN}" == "REPLACE_WITH_CF_WEB_ANALYTICS_TOKEN" ]]; then
+  echo "Please set CLOUDFLARE_WEB_ANALYTICS_TOKEN in ${ENV_FILE} before deploy." >&2
+  exit 1
+fi
+
 STAGE_DIR="$(mktemp -d)"
 trap 'rm -rf "${STAGE_DIR}"' EXIT
 
@@ -31,7 +49,12 @@ rsync -av --delete \
   --exclude='.git' \
   --exclude='.DS_Store' \
   --exclude='docs' \
+  --exclude='.env' \
+  --exclude='.env.example' \
   "${PROJECT_DIR}/" "${STAGE_DIR}/"
+
+# Inject Cloudflare analytics token into the staged artifact.
+perl -0777 -i -pe "s/REPLACE_WITH_CF_WEB_ANALYTICS_TOKEN/${CF_TOKEN}/g" "${STAGE_DIR}/index.html"
 
 echo "Uploading files to ${VPS_USER}@${VPS_HOST}:${REMOTE_SITE_DIR} ..."
 ssh "${VPS_USER}@${VPS_HOST}" "mkdir -p '${REMOTE_SITE_DIR}'"

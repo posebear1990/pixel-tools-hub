@@ -22,6 +22,16 @@ Open: `http://localhost:5080`
 
 ## Deploy (xiaoxiong.app)
 
+Prepare `.env` first:
+
+```bash
+cp .env.example .env
+```
+
+Set:
+
+- `CLOUDFLARE_WEB_ANALYTICS_TOKEN`: site token from Cloudflare Web Analytics for `xiaoxiong.app`
+
 ```bash
 VPS_HOST=your-vps-host \
 REMOTE_SITE_DIR=/var/www/xiaoxiong-apps/site \
@@ -49,6 +59,7 @@ Notes:
 - `DOMAIN` defaults to `xiaoxiong.app`
 - `VPS_USER` defaults to `root`
 - `CERT_NAME` defaults to the same value as `DOMAIN`
+- deploy injects `CLOUDFLARE_WEB_ANALYTICS_TOKEN` into `index.html` at release time
 
 ## Interactions
 
