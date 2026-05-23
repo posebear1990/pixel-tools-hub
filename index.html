@@ -4,43 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Xiaoxiong Apps</title>
-    <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.svg" />
-    <link rel="shortcut icon" href="./assets/icons/favicon.svg" />
+    <link rel="icon" type="image/png" href="./assets/icons/favicon.png" />
+    <link rel="shortcut icon" href="./assets/icons/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=VT323&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=20260417a" />
+    <link rel="stylesheet" href="./styles.css?v=20260524h" />
   </head>
   <body>
+    <header class="page-header">
+      <div class="header-inner">
+        <div class="brand-lockup">
+          <img class="brand-mark" src="./assets/icons/bear-header.png" alt="" />
+          <div class="title-lockup">
+            <h1 id="home-title">Xiaoxiong Apps</h1>
+            <p class="subtitle" id="home-subtitle">
+              Small apps, tools and experiments by Xiaoxiong.
+            </p>
+          </div>
+        </div>
+      </div>
+    </header>
+
     <main class="scene">
-      <div class="cloud-layer cloud-layer-back" aria-hidden="true"></div>
-      <div class="cloud-layer cloud-layer-front" aria-hidden="true"></div>
-
-      <section class="phone" id="phone" aria-label="Pixel phone navigation">
-        <header class="status-bar">
-          <span id="clock">--:--</span>
-          <span>XIAOXIONG APPS</span>
-        </header>
-
-        <section class="hero">
-          <h1>Xiaoxiong Apps</h1>
-          <p id="mode-hint">Hold an app to enter edit mode</p>
-        </section>
-
-        <section class="apps" id="apps" aria-label="App grid"></section>
-
-        <footer class="dock">
-          <button class="dock-btn dock-btn-secondary" id="reset-layout" type="button">RESET</button>
-          <button class="dock-btn" id="toggle-edit" type="button">EDIT</button>
-        </footer>
+      <section class="board" aria-label="Xiaoxiong app store">
+        <div class="section-stack" id="app-sections"></div>
       </section>
     </main>
 
-    <script src="./apps.config.js?v=20260501a" defer></script>
-    <script src="./app.js?v=20260417b" defer></script>
+    <footer class="page-footer">
+      <div class="footer-inner">
+        <p class="footer-copy">© 2026. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="./apps.config.js?v=20260524h" defer></script>
+    <script src="./app.js?v=20260524h" defer></script>
     <script
       defer
       src="https://static.cloudflareinsights.com/beacon.min.js"

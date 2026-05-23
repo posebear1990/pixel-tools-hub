@@ -4,25 +4,25 @@
   --sky-mid: #afe0ff;
   --sky-low: #89c9f6;
   --cloud: rgba(255, 255, 255, 0.92);
-  --line: #6f4a2b;
-  --line-dark: #4e311a;
-  --ink: #3d2a1b;
-  --ink-soft: #6d5946;
-  --paper-top: #fffdf7;
-  --paper-bottom: #fbf1df;
-  --paper-panel: rgba(255, 250, 240, 0.96);
-  --panel-shadow: rgba(123, 88, 57, 0.28);
-  --panel-glow: rgba(255, 255, 255, 0.68);
+  --line: #7fb3ce;
+  --line-dark: #5a96b5;
+  --ink: #1a3a52;
+  --ink-soft: #4a7090;
+  --paper-top: #ffffff;
+  --paper-bottom: #f0f7fc;
+  --paper-panel: rgba(240, 248, 255, 0.96);
+  --panel-shadow: rgba(80, 140, 190, 0.18);
+  --panel-glow: rgba(255, 255, 255, 0.72);
   --grass-1: #a8da75;
   --grass-2: #81c159;
-  --brick-1: #b98a57;
-  --brick-2: #9b6b40;
-  --focus: #f4c56b;
-  --brown-1: #6c4728;
-  --brown-2: #8a5a34;
-  --brown-3: #54351d;
-  --cream-1: #fffdf6;
-  --cream-2: #fcf3e2;
+  --brick-1: #7fb3ce;
+  --brick-2: #5a96b5;
+  --focus: #5aabd4;
+  --blue-1: #4a88ae;
+  --blue-2: #5f9dc3;
+  --blue-3: #3a7090;
+  --cream-1: #f4f9fd;
+  --cream-2: #e8f2f9;
   --pixel-shape: polygon(
     0 8px,
     1px 8px,
@@ -102,7 +102,7 @@ body {
   flex-direction: column;
   color: var(--ink);
   font-family: "Avenir Next", "SF Pro Text", "Segoe UI", sans-serif;
-  background: #f6eddc;
+  background: #eef6fc;
   position: relative;
   overflow-x: hidden;
 }
@@ -112,22 +112,22 @@ body {
   z-index: 3;
   padding: 11px 0;
   background:
-    linear-gradient(180deg, rgba(118, 78, 47, 0.98), rgba(84, 53, 30, 0.98)),
+    linear-gradient(180deg, rgba(165, 210, 235, 0.98), rgba(130, 185, 215, 0.98)),
     repeating-linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0.06) 0 14px,
-      rgba(0, 0, 0, 0.08) 14px 28px
+      rgba(255, 255, 255, 0.14) 0 14px,
+      rgba(80, 150, 200, 0.06) 14px 28px
     );
   border-bottom: 4px solid var(--line-dark);
-  box-shadow: 0 4px 0 rgba(54, 33, 17, 0.28);
-  overflow: hidden;
+  box-shadow: 0 4px 0 rgba(60, 120, 165, 0.2);
+  overflow: visible;
 }
 
 .page-header::after {
   content: "";
   position: absolute;
-  right: 20px;
-  bottom: 0;
+  right: 20%;
+  bottom: -6px;
   width: 56px;
   height: 56px;
   background: url("./assets/decor/flower-pink.png") no-repeat center / contain;
@@ -139,7 +139,7 @@ body {
 .header-inner {
   width: min(100%, 720px);
   margin: 0 auto;
-  padding: 0 18px;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -150,6 +150,7 @@ body {
   position: relative;
   display: flex;
   align-items: center;
+  align-self: stretch;
   gap: 0;
   min-width: 0;
   width: 100%;
@@ -158,16 +159,15 @@ body {
 .brand-mark {
   position: absolute;
   right: calc(100% + 14px);
-  top: 50%;
-  width: 44px;
-  height: 44px;
+  bottom: -10px;
+  top: auto;
+  width: 80px;
+  height: 80px;
   flex: 0 0 auto;
-  transform: translateY(-50%);
-  border: 2px solid rgba(255, 244, 224, 0.34);
-  background: rgba(255, 250, 239, 0.12);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
-  image-rendering: pixelated;
-  clip-path: var(--pixel-shape);
+  transform: none;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 body::before {
@@ -222,10 +222,10 @@ body::after {
   font-family: "Press Start 2P", "Silkscreen", monospace;
   font-size: clamp(16px, 2.4vw, 22px);
   line-height: 1.2;
-  color: #fff6e8;
+  color: #ffffff;
   text-shadow:
-    2px 2px 0 rgba(67, 41, 20, 0.7),
-    4px 4px 0 rgba(48, 28, 13, 0.36);
+    2px 2px 0 rgba(40, 100, 150, 0.4),
+    3px 3px 0 rgba(20, 70, 110, 0.2);
 }
 
 .subtitle {
@@ -233,13 +233,14 @@ body::after {
   max-width: 31rem;
   font-size: clamp(14px, 1.6vw, 15px);
   line-height: 1.5;
-  color: rgba(255, 243, 224, 0.92);
+  color: rgba(225, 243, 255, 0.92);
   overflow-wrap: anywhere;
 }
 
 .featured-section,
 .app-section {
   padding: 0;
+  margin-top: 10px;
 }
 
 .section-heading {
@@ -252,17 +253,17 @@ body::after {
   margin: 0;
   font-family: "Press Start 2P", "Silkscreen", monospace;
   font-size: clamp(16px, 1.8vw, 19px);
-  color: #3f2817;
+  color: #1a3a52;
 }
 
 .section-heading h2::before {
   content: "";
   position: absolute;
   right: calc(100% + 8px);
-  top: 0;
-  width: 1.2em;
-  height: 1.2em;
-  background: url("./assets/decor/bear-footprint.png") no-repeat center / contain;
+  top: -2px;
+  width: 1em;
+  height: 1em;
+  background: url("./assets/decor/bear-footprint-blue.png") no-repeat center / contain;
   image-rendering: pixelated;
 }
 
@@ -298,9 +299,9 @@ body::after {
 .app-card {
   --card-top: #90d6ff;
   --card-bottom: #5eafef;
-  --card-text: #2d1f15;
-  --card-soft: #6a5542;
-  --card-shadow: rgba(120, 86, 56, 0.18);
+  --card-text: #1a3347;
+  --card-soft: #4a7090;
+  --card-shadow: rgba(80, 140, 190, 0.15);
   border: 0;
   box-shadow: 0 8px 16px var(--card-shadow);
   background: var(--line);
@@ -322,7 +323,7 @@ body::after {
   content: "";
   position: absolute;
   inset: 1px;
-  background: linear-gradient(180deg, #fffdfa, #fbf1e2);
+  background: linear-gradient(180deg, #ffffff, #f0f7fc);
   clip-path: var(--pixel-shape);
 }
 
@@ -351,7 +352,7 @@ body::after {
 .app-card:hover,
 .app-card:focus-within {
   transform: translateY(-2px);
-  box-shadow: 0 12px 20px rgba(120, 86, 56, 0.2);
+  box-shadow: 0 12px 20px rgba(80, 140, 190, 0.22);
 }
 
 .featured-link:focus-visible,
@@ -401,14 +402,14 @@ body::after {
   margin-top: 7px;
   font-size: 13px;
   line-height: 1.45;
-  color: #473321;
+  color: #1e4060;
 }
 
 .featured-long {
   margin-top: 8px;
   font-size: 12px;
   line-height: 1.5;
-  color: #6f5b48;
+  color: #4a7090;
 }
 
 .app-head {
@@ -423,7 +424,7 @@ body::after {
   margin-top: 4px;
   font-size: 11px;
   line-height: 1.4;
-  color: #675341;
+  color: #4a6e88;
 }
 
 .app-long {
@@ -448,12 +449,12 @@ body::after {
   display: grid;
   align-items: start;
   padding: 10px 11px;
-  background: rgba(255, 250, 241, 0.97);
-  color: #5a4330;
-  border: 1px solid rgba(170, 126, 78, 0.6);
+  background: rgba(240, 250, 255, 0.97);
+  color: #1e4060;
+  border: 1px solid rgba(100, 165, 210, 0.55);
   box-shadow:
-    0 6px 14px rgba(56, 33, 18, 0.14),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+    0 6px 14px rgba(40, 100, 150, 0.12),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5);
   clip-path: var(--pixel-shape);
   font-size: 12px;
   line-height: 1.45;
@@ -578,7 +579,7 @@ body::after {
   }
 
   .header-inner {
-    padding: 0 12px;
+    padding: 0;
     display: grid;
     justify-content: start;
   }
@@ -588,9 +589,9 @@ body::after {
   }
 
   .brand-mark {
-    width: 38px;
-    height: 38px;
-    right: calc(100% + 10px);
+    width: 60px;
+    height: 60px;
+    right: calc(100% + 8px);
   }
 
   .board {
@@ -682,14 +683,14 @@ body::after {
   margin-top: auto;
   padding: 16px 0 18px;
   background:
-    linear-gradient(180deg, rgba(136, 99, 66, 0.98), rgba(103, 72, 45, 0.98)),
+    linear-gradient(180deg, rgba(140, 190, 220, 0.98), rgba(110, 165, 198, 0.98)),
     repeating-linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0.05) 0 14px,
-      rgba(0, 0, 0, 0.08) 14px 28px
+      rgba(255, 255, 255, 0.12) 0 14px,
+      rgba(60, 130, 180, 0.06) 14px 28px
     );
   border-top: 4px solid var(--line-dark);
-  box-shadow: inset 0 4px 0 rgba(255, 231, 196, 0.08);
+  box-shadow: inset 0 4px 0 rgba(255, 255, 255, 0.12);
   overflow: hidden;
 }
 
@@ -704,14 +705,14 @@ body::after {
 }
 
 .page-footer::before {
-  left: 18px;
+  left: calc(50% - 190px);
   width: 42px;
   height: 42px;
   background: url("./assets/decor/tree.png") no-repeat bottom left / contain;
 }
 
 .page-footer::after {
-  right: 24px;
+  right: calc(50% - 86px);
   width: 70px;
   height: 42px;
   background: url("./assets/decor/bear.png") no-repeat bottom right / contain;
@@ -734,7 +735,7 @@ body::after {
 .footer-copy {
   font-size: 12px;
   line-height: 1.5;
-  color: rgba(255, 239, 214, 0.86);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 @media (max-width: 767px) {
