@@ -451,10 +451,8 @@ body::after {
   padding: 10px 11px;
   background: rgba(240, 250, 255, 0.97);
   color: #1e4060;
-  border: 1px solid rgba(100, 165, 210, 0.55);
-  box-shadow:
-    0 6px 14px rgba(40, 100, 150, 0.12),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+  border: none;
+  box-shadow: 0 6px 14px rgba(40, 100, 150, 0.12);
   clip-path: var(--pixel-shape);
   font-size: 12px;
   line-height: 1.45;

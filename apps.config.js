@@ -27,10 +27,10 @@ window.PIXEL_HOME = {
   apps: [
     {
       id: "twitter-translator",
-      name: "Twitter UI Translator",
-      shortDesc: "Chrome extension for X/Twitter translation.",
+      name: "Xwitter Translator Bear",
+      shortDesc: "A Chrome extension for inline X/Twitter translation.",
       longDesc:
-        "Translate X/Twitter posts in one click with Google, Baidu, or your own LLM API provider.",
+        "Translate X (Twitter) posts in one click using Google, Baidu, or your own LLM API keys.",
       tags: ["Tool", "Browser Extension"],
       href: "https://chromewebstore.google.com/detail/xwitter-translator-bear-x/jfoppggphfkahfohdamcijagmpgffenp",
       iconSrc: "./assets/icons/xwitter-translator-bear.png",
@@ -39,10 +39,11 @@ window.PIXEL_HOME = {
     },
     {
       id: "twotwo-girl",
-      name: "22 Girl",
-      shortDesc: "Pixel Bilibili danmaku platformer.",
+      name: "22 Girl Danmaku Adventure",
+      shortDesc:
+        "A Chrome extension to turn Bilibili live danmaku into platforms.",
       longDesc:
-        "Turn live Bilibili danmaku into moving platforms and guide 22 Niang through a lightweight pixel platformer while you watch.",
+        "Convert real-time Bilibili live stream danmaku into jumping platforms for a 22-Niang pixel mini-game.",
       tags: ["Tool", "Game"],
       href: "https://chromewebstore.google.com/detail/22%E5%A8%98%E5%BC%B9%E5%B9%95%E5%A4%A7%E5%86%92%E9%99%A9/ffipgjffmghinekaaolhingoncpnenol",
       iconSrc: "./assets/icons/twotwo-girl.png",
@@ -53,9 +54,9 @@ window.PIXEL_HOME = {
     {
       id: "breathe-ball",
       name: "Breathe Ball",
-      shortDesc: "Guided breathing for focus and calm.",
+      shortDesc: "A minimalist guided breathing tool.",
       longDesc:
-        "A lightweight breathing app with a floating orb, flexible rhythm presets, and quick calm resets.",
+        "A simple breathing visualizer with custom rhythm presets to help you focus and relax.",
       tags: ["Tool", "Wellness"],
       href: "https://breatheball.xiaoxiong.app/",
       iconSrc: "./assets/icons/breatheball.png",
@@ -67,9 +68,10 @@ window.PIXEL_HOME = {
     {
       id: "xgp-box",
       name: "Game Pass Box",
-      shortDesc: "Xbox Game Pass tracker and explorer.",
+      shortDesc:
+        "A tool to help Xbox Game Pass users discover their next game.",
       longDesc:
-        "Discover what is actually worth playing next on Game Pass, ranked by player stats, value, and release signals.",
+        "Discover what is actually worth playing next on Xbox Game Pass based on community ratings and value metrics.",
       tags: ["Tool", "Game"],
       href: "https://gpbox.xiaoxiong.app/",
       iconSrc: "./assets/icons/game-pass-box.png",
@@ -80,9 +82,9 @@ window.PIXEL_HOME = {
     {
       id: "daily",
       name: "Daily",
-      shortDesc: "Personal blog and journal.",
+      shortDesc: "My personal blog and reading notes.",
       longDesc:
-        "Essays, reading notes, tech posts, and everyday reflections collected in one long-running personal blog.",
+        "A collection of my personal essays, technical notes, book reviews, and daily reflections.",
       tags: ["Content", "Writing"],
       href: "https://daily.xiaoxiong.app/",
       iconSrc: "./assets/icons/daily-favicon.ico",
@@ -91,10 +93,10 @@ window.PIXEL_HOME = {
     },
     {
       id: "podcast",
-      name: "Podcast",
-      shortDesc: "An English learning podcast.",
+      name: "Learn English with Podcasts",
+      shortDesc: "An AI-assisted English learning podcast.",
       longDesc:
-        "An AI-assisted English learning podcast that breaks strong episodes into five-minute chunks with Chinese summaries.",
+        "An English learning podcast utilizing AI semantic analysis to split episodes into five-minute segments with automatic Chinese summaries.",
       tags: ["Content", "Audio"],
       href: "https://enpod.podcast.xyz/",
       iconSrc: "./assets/icons/podcast-english.jpg",
@@ -105,9 +107,9 @@ window.PIXEL_HOME = {
     {
       id: "anki-learning-by-list",
       name: "Learning by List",
-      shortDesc: "Anki add-on for note-based review.",
+      shortDesc: "An Anki add-on to view cards as table lists.",
       longDesc:
-        "Browse the current Anki deck as a note-based list with configurable columns, inline audio playback, and faster scanning.",
+        "An Anki add-on that displays your cards as spreadsheet-style lists with custom columns and inline audio.",
       tags: ["Tool", "Study"],
       href: "https://ankiweb.net/shared/info/884041405",
       iconSrc: "./assets/icons/book-list.svg",
